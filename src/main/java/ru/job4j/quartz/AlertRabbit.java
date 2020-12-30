@@ -18,7 +18,7 @@ public class AlertRabbit {
             JobDetail job = newJob(Rabbit.class).build();
             Settings settings = new Settings();
             ClassLoader loader = settings.getClass().getClassLoader();
-            try (InputStream io = loader.getResourceAsStream("rabbit.properties")){
+            try (InputStream io = loader.getResourceAsStream("rabbit.properties")) {
                 settings.load(io);
             }
             SimpleScheduleBuilder times = simpleSchedule()
