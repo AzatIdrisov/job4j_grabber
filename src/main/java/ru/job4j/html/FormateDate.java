@@ -21,6 +21,8 @@ public class FormateDate {
             str[0] = dateFormat.format(day.getTime());
         } else if (str[1].equals("сен")) {
             str[1] = "сент.";
+        } else if (str[1].equals("ноя")) {
+            str[1] = "нояб.";
         } else {
             str[1] = str[1] + ".";
         }
