@@ -9,7 +9,7 @@ public class SqlRuParse {
 
     public static void main(String[] args) throws Exception {
         String url = "https://www.sql.ru/forum/job-offers/";
-        for (int i = 0; i < 5; i++) {
+        for (int i = 1; i <= 5; i++) {
             SqlRuParse.parse(url + i);
         }
     }
