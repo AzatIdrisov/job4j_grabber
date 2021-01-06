@@ -23,6 +23,8 @@ public class FormateDate {
             str[1] = "сент.";
         } else if (str[1].equals("ноя")) {
             str[1] = "нояб.";
+        } else if (str[1].equals("май")) {
+            str[1] = "мая";
         } else {
             str[1] = str[1] + ".";
         }
