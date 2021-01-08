@@ -5,7 +5,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class SqlRuParse {
+import java.util.ArrayList;
+import java.util.List;
+
+public class SqlRuParse implements Parse {
 
     public static void main(String[] args) throws Exception {
         String url = "https://www.sql.ru/forum/job-offers/";
@@ -23,5 +26,22 @@ public class SqlRuParse {
             Element date = td.parent().child(5);
             System.out.println(href.text() + " " + FormateDate.formate(date.text()));
         }
+    }
+
+    @Override
+    public List<Post> list(String link) throws Exception {
+        List<Post> posts = new ArrayList<>();
+        Document doc = Jsoup.connect(link).get();
+        Elements row = doc.select(".postslisttopic");
+        for (Element td : row) {
+            Element href = td.child(0);
+            posts.add(Post.createPost(href.attr("href")));
+        }
+        return posts;
+    }
+
+    @Override
+    public Post detail(String link) throws Exception {
+        return Post.createPost(link);
     }
 }

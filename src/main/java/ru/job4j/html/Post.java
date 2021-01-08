@@ -28,16 +28,14 @@ public class Post {
         Element name = table.get(0);
         Elements messages = doc.select(".msgBody");
         Element messagePost = messages.get(1);
-        Elements dates = doc.select(".msgFooter");
-        Element date = dates.get(1);
+        Elements info = doc.select(".msgFooter");
+        Element date = info.get(0);
         Date createdDate = FormateDate.formate(date.text().split("\\[")[0]);
-        System.out.println(name.text());
-        System.out.println(messagePost.text());
-        System.out.println(createdDate);
         return new Post(name.text(), messagePost.text(), createdDate, url);
     }
 
     public static void main(String[] args) throws Exception {
         createPost("https://www.sql.ru/forum/1325330/lidy-be-fe-senior-cistemnye-analitiki-qa-i-devops-moskva-do-200t");
     }
+
 }
