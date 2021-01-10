@@ -10,7 +10,6 @@ import java.util.Date;
 public class Post {
     private String postName;
     private String link;
-    private String author;
     private Date dateCreation;
     private int id;
     private String text;
@@ -20,6 +19,26 @@ public class Post {
         this.text = text;
         this.dateCreation = date;
         this.link = link;
+    }
+
+    public String getPostName() {
+        return postName;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getText() {
+        return text;
     }
 
     public static Post createPost(String url) throws Exception {
@@ -38,4 +57,13 @@ public class Post {
         createPost("https://www.sql.ru/forum/1325330/lidy-be-fe-senior-cistemnye-analitiki-qa-i-devops-moskva-do-200t");
     }
 
+    @Override
+    public String toString() {
+        return "Post{"
+                + "postName='" + postName + '\''
+                + ", link='" + link + '\''
+                + ", dateCreation=" + dateCreation
+                + ", text='" + text + '\''
+                + '}';
+    }
 }
